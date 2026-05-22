@@ -130,7 +130,7 @@ else:
                 "Je dois en parler à mon associé / y réfléchir"
             ])
 
-        generer = st.button("🚀 Générer le Script de Vente Élite", use_container_width=True)
+        generer = st.button("🚀 Générer le Script De Vente Élite", use_container_width=True)
 
     if generer:
         if not API_KEY:
@@ -169,8 +169,8 @@ else:
                         temperature=0.7
                     )
                     
-                    # Code d'extraction corrigé avec l'index pour éviter les bugs
-                    script_final = reponse.choices.message.content
+                    # CORRECTION EFFECTUÉE ICI : Ajout des crochets [0] pour cibler le premier message
+                    script_final = reponse.choices[0].message.content
                     st.success("✨ Votre script téléphonique de pro est prêt !")
                     st.markdown(script_final)
                     st.text_area("Copier le texte brut :", value=script_final, height=300)
